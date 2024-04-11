@@ -1,9 +1,9 @@
 import "../App.css";
 
+import GameTemplate from "../components/GameTemplate";
 // Import dependencies
 import React from "react";
-import GameTemplate from "../components/GameTemplate";
-import { wordBank } from "../constants/wordBank";
+import { classBank } from "../constants/classBank";
 
 function WordGame() {
   return (
@@ -13,9 +13,9 @@ function WordGame() {
       description={
         "This is a simple game developed based on the AlphaSign extended model"
       }
-      wordBank={wordBank}
+      classBank={classBank}
       modelUrl={
-        "https://raw.githubusercontent.com/yappeizhen/AlphaSign/master/ReactCV/src/tfjs_model_mobilenetv2_fpnlite_all_classes_v2/model.json"
+        "https://raw.githubusercontent.com/yappeizhen/Trash_Classifier/main/models/tfjs_model/model.json"
       }
       isWordMode
     />

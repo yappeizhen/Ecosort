@@ -333,12 +333,12 @@ const StyledSliderLabel = styled.p`
 const MODEL_INDEXES = {
   baseline: {
     boxes: 7,
-    classes: 4,
+    classes: 5,
     scores: 6,
   },
   extended: {
     boxes: 0,
-    classes: 2,
+    classes: 5,
     scores: 4,
   },
 };
@@ -348,9 +348,8 @@ function GameTemplate({
   title,
   description,
   isBaseline,
-  wordBank,
+  classBank,
   modelUrl,
-  isWordMode,
 }) {
   const localStorageKey = `${index}ScoreSheet`;
   const [isStarted, setIsStarted] = useState(false);
@@ -376,9 +375,9 @@ function GameTemplate({
   const thresholdRef = useRef(0.7);
 
   const chooseRandomWord = useCallback(() => {
-    const i = Math.floor(Math.random() * wordBank.length);
+    const i = Math.floor(Math.random() * classBank.length);
     return i;
-  }, [wordBank]);
+  }, [classBank]);
 
   // Helper functions
   const handleChooseWord = useCallback(() => {
@@ -402,13 +401,13 @@ function GameTemplate({
     if (
       // If user has completed the whole word
       doneLetterIndexRef.current + 1 ===
-      wordBank[currentWordBankIndexRef.current].word.length
+      classBank[currentWordBankIndexRef.current].word.length
     ) {
       scoreRef.current += 1;
       setScore(scoreRef.current);
       handleChooseWord(); // if user has completed whole word, choose next word
     }
-  }, [handleChooseWord, wordBank]);
+  }, [handleChooseWord, classBank]);
 
   const updateScoreSheet = useCallback(() => {
     if (scoreRef.current > 0) {
@@ -466,12 +465,10 @@ function GameTemplate({
         const casted = resized.cast("int32");
         const expanded = casted.expandDims(0);
         const obj = await net.executeAsync(expanded);
-        //console.log(obj)
 
         if (obj) {
           setIsLoading(false);
         }
-
         const modelIndexes = isBaseline
           ? MODEL_INDEXES.baseline
           : MODEL_INDEXES.extended;
@@ -482,7 +479,7 @@ function GameTemplate({
         // Draw mesh
         if (canvasRef.current) {
           const ctx = canvasRef.current.getContext("2d");
-          const curWord = wordBank[currentWordBankIndexRef.current]?.word;
+          const curWord = classBank[currentWordBankIndexRef.current]?.word;
           const curLetterIndex = doneLetterIndexRef.current + 1;
           const curLetter = curWord?.charAt(curLetterIndex).toUpperCase();
           // 5. TODO - Update drawing utility
@@ -516,7 +513,7 @@ function GameTemplate({
         tf.dispose(obj);
       }
     },
-    [onNextLetter, wordBank, isBaseline]
+    [onNextLetter, classBank, isBaseline]
   );
 
   const runCoco = useCallback(async () => {
@@ -608,21 +605,21 @@ function GameTemplate({
               <StyledBubbleWrapper hidden={!isStarted || countdown > 0}>
                 <StyledPrompt>Sign this:</StyledPrompt>
                 <StyledWordContainer>
-                  {wordBank[currentWordBankIndex]?.img && (
+                  {classBank[currentWordBankIndex]?.img && (
                     <StyledWordImg
                       hidden={!showAnswer}
-                      src={wordBank[currentWordBankIndex].img}
+                      src={classBank[currentWordBankIndex].img}
                       alt="Target sign language"
                     />
                   )}
                   <StyledTargetWord>
-                    {wordBank[currentWordBankIndex]?.word
+                    {classBank[currentWordBankIndex]?.word
                       ?.split("")
                       .map((letter, idx) => {
                         return (
                           <StyledLetterDisplay
                             key={idx}
-                            isEmphasized={!isWordMode || doneLetterIndex >= idx}
+                            isEmphasized={doneLetterIndex >= idx}
                           >
                             {letter}
                           </StyledLetterDisplay>
@@ -639,7 +636,7 @@ function GameTemplate({
             <StyledBoyContainer>
               <StyledBoyImg alt="Boy raising hand" src={boyImg}></StyledBoyImg>
               <StyledTogglePanel>
-                <StyledSwitchGroup isHidden={isWordMode}>
+                <StyledSwitchGroup>
                   <StyledSwitchLabel>Show answers:</StyledSwitchLabel>
                   <Switch
                     checked={showAnswer}
