@@ -136,7 +136,7 @@ function NavBar() {
         <StyledPeaceSign src={fistBump} alt="V Sign" />
         <div>
           <StyledH1>Trash Classifier</StyledH1>
-          <StyledNameText>a IS4242 project</StyledNameText>
+          <StyledNameText>An IS4242 project</StyledNameText>
         </div>
       </StyledIntro>
       <StyledNavContainer>
