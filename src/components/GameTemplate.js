@@ -218,7 +218,6 @@ function GameTemplate({ title, description, classBank, modelUrl }) {
         const scores = await obj[MODEL_INDEXES.scores].array();
         // Draw mesh
         if (canvasRef.current) {
-          const ctx = canvasRef.current.getContext("2d");
           const curWord = classBank[currentWordBankIndexRef.current]?.word;
           const curLetterIndex = doneLetterIndexRef.current + 1;
           const curLetter = curWord?.charAt(curLetterIndex).toUpperCase();
