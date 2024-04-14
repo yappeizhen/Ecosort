@@ -5,21 +5,20 @@ import GameTemplate from "../components/GameTemplate";
 import React from "react";
 import { classBank } from "../constants/classBank";
 
-function WordGame() {
+function TrashClassifer() {
   return (
     <GameTemplate
-      id="wordgame"
-      title="Word Game"
+      id="trashclassifier"
+      title="IS4242 Trash Classifier"
       description={
-        "This is a simple game developed based on the AlphaSign extended model"
+        "This is a simple model that can help you differentiate between recyclable classes"
       }
       classBank={classBank}
       modelUrl={
         "https://raw.githubusercontent.com/yappeizhen/Trash_Classifier/main/models/tfjs_model/model.json"
       }
-      isWordMode
     />
   );
 }
 
-export default WordGame;
+export default TrashClassifer;
