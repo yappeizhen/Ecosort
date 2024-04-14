@@ -331,23 +331,15 @@ const StyledSliderLabel = styled.p`
 `;
 
 const MODEL_INDEXES = {
-  baseline: {
-    boxes: 7,
-    classes: 5,
-    scores: 6,
-  },
-  extended: {
-    boxes: 0,
-    classes: 5,
+    boxes: 1,
+    classes: 0,
     scores: 4,
-  },
 };
 
 function GameTemplate({
   index,
   title,
   description,
-  isBaseline,
   classBank,
   modelUrl,
 }) {
@@ -469,21 +461,15 @@ function GameTemplate({
         if (obj) {
           setIsLoading(false);
         }
-        const modelIndexes = isBaseline
-          ? MODEL_INDEXES.baseline
-          : MODEL_INDEXES.extended;
-        const boxes = await obj[modelIndexes.boxes].array();
-        const classes = await obj[modelIndexes.classes].array();
-        const scores = await obj[modelIndexes.scores].array();
-
+        const boxes = await obj[MODEL_INDEXES.boxes].array();
+        const classes = await obj[MODEL_INDEXES.classes].array();
+        const scores = await obj[MODEL_INDEXES.scores].array();
         // Draw mesh
         if (canvasRef.current) {
           const ctx = canvasRef.current.getContext("2d");
           const curWord = classBank[currentWordBankIndexRef.current]?.word;
           const curLetterIndex = doneLetterIndexRef.current + 1;
           const curLetter = curWord?.charAt(curLetterIndex).toUpperCase();
-          // 5. TODO - Update drawing utility
-          // drawSomething(obj, ctx)
           requestAnimationFrame(() => {
             const result = drawRect(
               boxes[0],
@@ -513,7 +499,7 @@ function GameTemplate({
         tf.dispose(obj);
       }
     },
-    [onNextLetter, classBank, isBaseline]
+    [onNextLetter, classBank]
   );
 
   const runCoco = useCallback(async () => {
