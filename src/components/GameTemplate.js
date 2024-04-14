@@ -89,15 +89,13 @@ const StyledCamLoadingScreen = styled.div`
   text-align: center;
   z-index: 12;
   width: 90%;
-  height: calc(100% - 24px);
-  border-radius: 8px;
+  height: calc(100% - 4px);
+  border-radius: 20px;
   background-color: rgb(240, 248, 255, 0.5);
   justify-content: center;
   align-items: center;
   @media only screen and (max-width: 768px) {
     width: 100%;
-    height: calc(100% - 16px);
-    border-radius: 28px;
   }
 `;
 const StyledCanvas = styled.canvas`
@@ -109,7 +107,6 @@ const StyledCanvas = styled.canvas`
   border-radius: 20px;
   @media only screen and (max-width: 768px) {
     width: 100%;
-    height: calc(100% - 4px);
     border-radius: 20px;
   }
 `;
