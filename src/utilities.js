@@ -1,8 +1,8 @@
 const LABEL_MAP = {
-    1: { name: 'Plastic', color: 'red' },
+    1: { name: 'Metal', color: 'red' },
     2: { name: 'Paper', color: 'yellow' },
-    3: { name: 'Glass', color: 'lime' },
-    4: { name: 'Metal', color: 'blue' },
+    3: { name: 'Plastic', color: 'lime' },
+    4: { name: 'Glass', color: 'blue' },
     5: { name: 'Other', color: 'purple' },
 }
 
