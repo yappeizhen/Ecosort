@@ -38,7 +38,7 @@ const StyledAppBar = styled.div`
   margin-bottom: 8px;
 `;
 const StyledH1 = styled.h1`
-  font-size: 20px;
+  font-size: 28px;
   padding: 0;
   margin: 0;
   text-align: center;
@@ -104,9 +104,9 @@ const StyledCanvas = styled.canvas`
   position: absolute;
   text-align: center;
   z-index: 10;
-  width: 90%;
-  height: calc(100% - 20px);
-  border-radius: 20px;
+  width: 85%;
+  height: calc(100% - 24px);
+  border-radius: 24px;
   @media only screen and (max-width: 768px) {
     width: 100%;
     height: calc(100% - 16px);
@@ -116,19 +116,21 @@ const StyledCanvas = styled.canvas`
 const StyledWebcam = styled(Webcam)`
   text-align: center;
   z-index: 9;
-  max-width: 90%;
+  max-width: 85%;
   height: 100%;
-  border-radius: 20px;
-  border: 2px solid rgb(40, 44, 52);
+  border-radius: 40px;
+  border: 16px solid rgb(40, 44, 52);
+  box-shadow: 8px 8px 2px 4px rgb(40, 44, 52, 0.5);
   @media only screen and (max-width: 680px) {
     max-width: 100%;
     border: 8px solid rgb(40, 44, 52);
+    box-shadow: 8px 8px 2px 4px rgb(40, 44, 52, 0.5);
   }
 `
 const StyledDescription = styled.div`
   text-align: center;
   max-width: 50rem;
-  font-size: 12px;
+  font-size: 14px;
   @media only screen and (max-width: 768px) {
     font-size: 10px;
     padding: 0;
@@ -147,10 +149,9 @@ const StyledSliderContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-bottom: 16px;
 `;
 const StyledSliderLabel = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   padding: 0;
   margin: 0;
   @media only screen and (max-width: 768px) {
