@@ -88,9 +88,9 @@ const StyledCamLoadingScreen = styled.div`
   position: absolute;
   text-align: center;
   z-index: 12;
-  width: 85%;
+  width: 90%;
   height: calc(100% - 24px);
-  border-radius: 24px;
+  border-radius: 8px;
   background-color: rgb(240, 248, 255, 0.5);
   justify-content: center;
   align-items: center;
@@ -104,27 +104,25 @@ const StyledCanvas = styled.canvas`
   position: absolute;
   text-align: center;
   z-index: 10;
-  width: 85%;
-  height: calc(100% - 24px);
-  border-radius: 24px;
+  width: 90%;
+  height: calc(100% - 4px);
+  border-radius: 20px;
   @media only screen and (max-width: 768px) {
     width: 100%;
-    height: calc(100% - 16px);
-    border-radius: 28px;
+    height: calc(100% - 4px);
+    border-radius: 20px;
   }
 `;
 const StyledWebcam = styled(Webcam)`
   text-align: center;
   z-index: 9;
-  max-width: 85%;
+  max-width: 90%;
   height: 100%;
-  border-radius: 40px;
-  border: 16px solid rgb(40, 44, 52);
-  box-shadow: 8px 8px 2px 4px rgb(40, 44, 52, 0.5);
+  border-radius: 20px;
+  border: 2px solid rgb(40, 44, 52);
   @media only screen and (max-width: 680px) {
     max-width: 100%;
-    border: 8px solid rgb(40, 44, 52);
-    box-shadow: 8px 8px 2px 4px rgb(40, 44, 52, 0.5);
+    border: 2px solid rgb(40, 44, 52);
   }
 `
 const StyledDescription = styled.div`
