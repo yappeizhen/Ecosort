@@ -164,6 +164,10 @@ const MODEL_INDEXES = {
   scores: 4,
 };
 
+const videoConstraints = {
+  facingMode: "environment"
+}
+
 function GameTemplate({ title, description, classBank, modelUrl }) {
   const [countdown, setCountdown] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
@@ -314,7 +318,7 @@ function GameTemplate({ title, description, classBank, modelUrl }) {
               <StyledCamLoadingScreen hidden={!isLoading}>
                 <StyledLoadingText>Loading Model...</StyledLoadingText>
               </StyledCamLoadingScreen>
-              <StyledWebcam ref={webcamRef} muted={true} audio={false} />
+              <StyledWebcam ref={webcamRef} muted={true} audio={false} videoConstraints = {videoConstraints} />
               <StyledCanvas ref={canvasRef} />
             </StyledCamWrapper>
           </StyledRightPanel>
