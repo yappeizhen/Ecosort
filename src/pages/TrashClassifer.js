@@ -15,7 +15,7 @@ function TrashClassifer() {
       }
       classBank={classBank}
       modelUrl={
-        "https://raw.githubusercontent.com/yappeizhen/Ecosort/main/models/tfjs_model/model.json"
+        "https://github.com/yappeizhen/Ecosort/blob/main/models/tfjs_model/model.json"
       }
     />
   );
