@@ -9,7 +9,7 @@ function TrashClassifer() {
   return (
     <GameTemplate
       id="trashclassifier"
-      title="IS4242 Trash Classifier"
+      title="IS4242 Ecosort"
       description={
         "This is a simple model that can help you differentiate between recyclable classes"
       }
