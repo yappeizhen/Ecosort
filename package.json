@@ -1,5 +1,5 @@
 {
-  "name": "trash-classifier",
+  "name": "ecosort",
   "version": "0.1.0",
   "dependencies": {
     "@emotion/react": "^11.4.1",
