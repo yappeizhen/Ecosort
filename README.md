@@ -1,8 +1,8 @@
-# Training
+# Model Training
 Training is done with the `training/trash_detection_base.ipynb` notebook in Colab. The video explaining the notebook is attached in the Canvas submission, as requested.
 
 The collected and annotated data is found in `training/annotations.zip`
-# Conversion
+# Tensorflow Model Conversion
 The conversion is done with the notebook files in `models`. The first cell of `convert_model.ipynb` installs any required dependencies.
 
 # Running EcoSort webapp locally
